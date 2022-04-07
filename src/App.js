@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import Profile from './Profile/Profile';
 import './App.css';
+import React from 'react';
 
-function App() {
+class App extends React.Component {
+
+  state ={
+    me:{
+    fullName: 'Ashraf Ben Khemis',
+    bio:'student',
+    src: './Ashraf.png',
+    profession:'Engineer',
+    img: 'Ashraf.png'
+    },
+    show: true,
+    count:0
+  };
+
+ handleShow = () =>{
+  this.setState({show: !this.state.show});
+ }
+ handleCount = () =>{
+   this.setState({count: this.state.count+1})
+ }
+componentDidMount(){
+  setInterval(()=> this.handleCount(),1000);
+}
+
+  render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div className="App">
+        <button className="btn" onClick={this.handleShow}>{this.state.show ? 'Hide':'Show'}{' '}</button>
+        {this.state.show ?  this.state.show && <><p>{this.state.count}</p> <Profile/> </>: null} 
+
     </div>
   );
+}
 }
 
 export default App;
