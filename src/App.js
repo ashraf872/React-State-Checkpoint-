@@ -9,8 +9,7 @@ class App extends React.Component {
     fullName: 'Ashraf Ben Khemis',
     bio:'student',
     src: './Ashraf.png',
-    profession:'Engineer',
-    img: 'Ashraf.png'
+    profession:'Engineer'
     },
     show: true,
     count:0
@@ -29,7 +28,7 @@ componentDidMount(){
   render() {
   return (
         <div className="App">
-        <button className="btn" onClick={this.handleShow}>{this.state.show ? 'Hide':'Show'}{' '}</button>
+        <button className="btn" onClick={this.handleShow}>{this.state.show ? 'Hide':'Show'}</button>
         {this.state.show ?  this.state.show && <><p>{this.state.count}</p> <Profile/> </>: null} 
 
     </div>
